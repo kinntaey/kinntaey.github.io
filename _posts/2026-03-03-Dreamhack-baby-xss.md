@@ -1,7 +1,7 @@
 
 ---
 title: "[Dreamhack] Baby XSS"
-date: 2026-03-03 15:00:00 +1100
+date: 2026-03-02 15:00:00 +1100
 categories: [CTF Writeup, Web]
 tags: [dreamhack, xss]     # TAG names should always be lowercase
 ---
