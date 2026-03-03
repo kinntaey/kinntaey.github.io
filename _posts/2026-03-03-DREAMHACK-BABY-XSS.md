@@ -1,4 +1,3 @@
-
 ---
 title: "[Dreamhack] Baby XSS"
 date: 2026-03-02 15:00:00 +1100
