@@ -1,6 +1,6 @@
 ---
 title: "[Study Note] Privacy-Preserving Record Linkage (PPRL) & ML Attacks"
-date: 2026-03-06 15:10:00 +1100
+date: 2026-03-03 15:00:00 +1100
 categories: [Study Note, AI]
 tags: [ai_security, mia, linkage_model]
 math: true
@@ -43,7 +43,7 @@ The key privacy guarantee is that **neither database sees the other's sensitive 
 
 ## Application of PPRL
 
-![PPRL Application](/assets/img/image 1.png)
+![PPRL Application](/assets/img/image-1.png)
 
 A real-world application in the **healthcare domain**:
 
@@ -75,7 +75,7 @@ The model groups matched records into **clusters** — each cluster represents o
 
 ## PPRL Pipeline
 
-![PPRL Pipeline](/assets/img/image 2.png)
+![PPRL Pipeline](/assets/img/image-2.png)
 
 **① Multiple Databases (D₁, D₂, ... Dₚ)** — Several databases from different organisations, each holding raw sensitive personal data.
 
@@ -118,7 +118,7 @@ Blocking is a **filtering step** that groups records into smaller buckets called
 - Records A and C → **same block** (postcode 2000) → compared ✅
 - Records A and B → **different blocks** → skipped ❌
 
-![Blocking Diagram](/assets/img/image 3.png)
+![Blocking Diagram](/assets/img/image-3.png)
 
 Each **colour** in the puzzle represents a block — only pieces of the **same colour** get compared.
 
@@ -138,7 +138,7 @@ Blocking dramatically **reduces the number of comparisons** needed, making the w
 
 A Bloom filter is a **bit vector (a row of 0s and 1s)** that represents a piece of data. Each value gets mapped to specific positions in the vector.
 
-![Bloom Filter Exact Matching](/assets/img/image 4.png)
+![Bloom Filter Exact Matching](/assets/img/image-4.png)
 
 ### Example: "smith" vs "smith" (identical)
 
@@ -172,7 +172,7 @@ This is called **exact matching** — even a tiny difference (e.g. "smith" vs "s
 
 ## Data Encoding: Fuzzy Matching Using Bloom Filters
 
-![Bloom Filter Fuzzy Matching](/assets/img/image 5.png)
+![Bloom Filter Fuzzy Matching](/assets/img/image-5.png)
 
 ### String Example: "smith" vs "smit"
 
@@ -221,7 +221,7 @@ Fuzzy matching is far more practical in real-world scenarios where **typos, abbr
 
 ## Bloom Filters with Provable Privacy Guarantees
 
-![Differential Privacy](/assets/img/image 6.png)
+![Differential Privacy](/assets/img/image-6.png)
 
 ### The Problem
 
@@ -264,7 +264,7 @@ The attacker knows the formula, but **NOT** which bits were flipped, how many, o
 
 ## Text Data Encoding: Counting Bloom Filters (CBF)
 
-![Counting Bloom Filters](/assets/img/image 7.png)
+![Counting Bloom Filters](/assets/img/image-7.png)
 
 ### Why a Different Approach for Text?
 
@@ -322,7 +322,7 @@ A score of 0.8 correctly reflects that the two records share cancer, biopsy, and
 
 ### 2. Linkage Quality
 
-![Confusion Matrix](/assets/img/image 8.png)
+![Confusion Matrix](/assets/img/image-8.png)
 
 | | Actually a Match | Actually NOT a Match |
 |--|--|--|
@@ -373,7 +373,7 @@ The attacker **manipulates the input** to trick the model into producing a desir
 
 > Given a trained ML model and a record, determine whether that record was part of the model's training data.
 
-![MIA Overview](/assets/img/image 9.png)
+![MIA Overview](/assets/img/image-9.png)
 
 ### How it works
 
@@ -442,7 +442,7 @@ Standard MIA definitions may not work well here — free-text input requires a *
 
 ## Shadow Model-based MIA
 
-![Shadow Model MIA](/assets/img/image 10.png)
+![Shadow Model MIA](/assets/img/image-10.png)
 
 The attacker creates **fake versions (shadow models)** of the target model to learn how it behaves.
 
@@ -470,7 +470,7 @@ Determine: Member or Non-Member? 🔍
 
 > **Analogy:** Like practising on past exam papers to learn the examiner's patterns, then applying that knowledge to the real exam.
 
-![Shadow Model Detail](/assets/img/image 11.png)
+![Shadow Model Detail](/assets/img/image-11.png)
 
 ---
 
@@ -484,7 +484,7 @@ Determine: Member or Non-Member? 🔍
 | Model | Logistic regression |
 | Attacks | Threshold-based + Shadow model-based |
 
-![ROC Curve CIFAR-10](/assets/img/image 12.png)
+![ROC Curve CIFAR-10](/assets/img/image-12.png)
 
 | Attack | AUC |
 |--------|-----|
@@ -497,7 +497,7 @@ Both attacks are **meaningfully better than random guessing (AUC = 0.5)**, confi
 
 ## Experiments: MIA with Free-text Input Space
 
-![ROC Curve Free-text](/assets/img/image 13.png)
+![ROC Curve Free-text](/assets/img/image-13.png)
 
 | Detail | Value |
 |--------|-------|
@@ -525,7 +525,7 @@ Both attacks are **meaningfully better than random guessing (AUC = 0.5)**, confi
 
 ## Experiments: Free-text MIA (Small Dataset, Overfitting)
 
-![Overfitting MIA](/assets/img/image 14.png)
+![Overfitting MIA](/assets/img/image-14.png)
 
 | Detail | Value |
 |--------|-------|
@@ -554,7 +554,7 @@ Reducing overfitting (regularisation, dropout, early stopping) is an effective *
 
 ## Experiments: Free-text MIA (Multiple Shadow Models)
 
-![Multiple Shadow Models](/assets/img/image 15.png)
+![Multiple Shadow Models](/assets/img/image-15.png)
 
 | Number of shadow models | AUC |
 |------------------------|-----|
