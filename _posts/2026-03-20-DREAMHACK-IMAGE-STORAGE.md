@@ -1,7 +1,7 @@
 ---
 title: "[Dreamhack] image-storage"
 date: 2026-03-20 15:00:00 +1100
-categories: [CTF Writeup, Web]
+categories: [CTF Writeup, Web Hacking]
 tags: [web_security, file_upload, rce, web_shell, php]
 ---
 
