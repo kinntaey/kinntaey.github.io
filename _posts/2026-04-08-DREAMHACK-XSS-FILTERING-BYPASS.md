@@ -14,6 +14,7 @@ tags: [dreamhack, xss]     # TAG names should always be lowercase
 
 First, analyse the contents of `index.html`.
 
+{% raw %}
 ```python
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
@@ -31,7 +32,7 @@ First, analyse the contents of `index.html`.
 <p class="important"><a href="/flag">flag</a></p>
 {% endblock %}
 ```
-
+{% endraw %}
 The memo page has a default output value of `hello`.
 
 Now analyse `app.py`.
